@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-light bg-light">
+  <span class="navbar-brand mb-0 h1">challenges</span>
+    <a href="/add" role="button" class="btn btn-primary btn-lg" style="margin: 10px 20px; float: right">add</a>
+</nav>
+
+{% for challenge in challenges %}
+    <div class="card" style="width: 18rem; margin: 10px 20px">
+      <div class="card-body">
+        <h5 class="card-title">{{ challenge['name'] }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ challenge['start_date'] }} | {{ challenge['end_date'] }}</h6>
+        <p class="card-text">{{ challenge['description'] }} <br> {{ challenge['done'] }}</p>
+        <a href="/delete/{{ challenge['id'] }}" class="card-link">delete</a>
+      </div>
+    </div>
+{% endfor %}
+</body>
+</html>
