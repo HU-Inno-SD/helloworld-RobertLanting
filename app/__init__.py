@@ -40,12 +40,13 @@ def saveDetails():
             con.commit()
             msg = "challenge successfully Added"
             print("success")
+            con.close()
     except:
         con.rollback()
         msg = "We can not add the employee to the list"
         print("fail")
-    finally:
         con.close()
+    finally:
         return render_template("succes.html", msg=msg)
 
 
