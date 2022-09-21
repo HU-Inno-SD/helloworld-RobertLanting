@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request
 import db.db as db
 
-flask = Flask(__name__)
+app = Flask(__name__)
 
 
-@flask.route("/")
+@app.route("/")
 def hello_world():
     con = db.get_db()
     cur = con.cursor()
@@ -17,12 +17,12 @@ def hello_world():
     return render_template('hello.html', challenges=challenges)
 
 
-@flask.route("/add")
+@app.route("/add")
 def add_challenge():
     return render_template('add.html')
 
 
-@flask.route("/savedetails", methods=["POST"])
+@app.route("/savedetails", methods=["POST"])
 def saveDetails():
     msg = "msg"
     try:
@@ -49,7 +49,7 @@ def saveDetails():
         return render_template("succes.html", msg=msg)
 
 
-@flask.route("/delete/<int:id>")
+@app.route("/delete/<int:id>")
 def delete(id):
     with db.get_db() as con:
         try:
@@ -63,4 +63,4 @@ def delete(id):
 
 
 if __name__ == "__main__":
-    flask.run()
+    app.run()
