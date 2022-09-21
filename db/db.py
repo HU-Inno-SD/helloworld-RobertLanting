@@ -2,16 +2,6 @@ import sqlite3
 
 from flask import g
 
-from app import app
-
-
-def init_db():
-    db = get_db()
-
-    with app.open_resource('db/schema.sql') as f:
-        db.executescript(f.read().decode('utf8'))
-
-
 
 def get_db():
     if 'db' not in g:
