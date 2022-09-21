@@ -2,13 +2,15 @@ import sqlite3
 
 from flask import g
 
-sqlite3.connect("flaskr.sqlite").execute(
-    "create table challenges (id integer primary key autoincrement,"
-    " name text,"
-    " description text,"
-    " start_date text,"
-    " end_date text,"
-    " done text)")
+from app import app
+
+
+def init_db():
+    db = get_db()
+
+    with app.open_resource('db/schema.sql') as f:
+        db.executescript(f.read().decode('utf8'))
+
 
 
 def get_db():
