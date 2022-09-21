@@ -3,8 +3,8 @@ import sqlite3
 from flask import g
 
 
-def init_db():
-    sqlite3.connect("flaskr.sqlite").execute(
+def init_db(db):
+    db.execute(
     "create table challenges (id integer primary key autoincrement,"
     " name text,"
     " description text,"
@@ -14,8 +14,8 @@ def init_db():
 
 def get_db():
     if 'db' not in g:
-        init_db()
         g.db = sqlite3.connect("flaskr.sqlite")
+        init_db(g.db)
         g.db.row_factory = sqlite3.Row
 
     return g.db
