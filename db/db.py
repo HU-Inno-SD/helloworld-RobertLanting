@@ -1,7 +1,14 @@
 import sqlite3
 
-import click
-from flask import current_app, g
+from flask import g
+
+sqlite3.connect("flaskr.sqlite").execute(
+    "create table challenges (id integer primary key autoincrement,"
+    " name text,"
+    " description text,"
+    " start_date text,"
+    " end_date text,"
+    " done text)")
 
 
 def get_db():
