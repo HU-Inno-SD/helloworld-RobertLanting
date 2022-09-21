@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="flaskr.sqlite" uuid="35ddedd9-af87-4c9d-a53a-f0022c9ed66a">
-      <driver-ref>sqlite.xerial</driver-ref>
+    <data-source source="LOCAL" name="d8khc8qncpickk@ec2-18-209-78-11.compute-1.amazonaws.com" uuid="524eb811-f3c4-4b1d-b5f9-a0eb84bf6875">
+      <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:flaskr.sqlite</jdbc-url>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://ec2-18-209-78-11.compute-1.amazonaws.com/d8khc8qncpickk</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

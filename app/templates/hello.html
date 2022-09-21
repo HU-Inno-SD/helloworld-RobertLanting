@@ -14,10 +14,10 @@
 {% for challenge in challenges %}
     <div class="card" style="width: 18rem; margin: 10px 20px">
       <div class="card-body">
-        <h5 class="card-title">{{ challenge['name'] }}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{ challenge['start_date'] }} | {{ challenge['end_date'] }}</h6>
-        <p class="card-text">{{ challenge['description'] }} <br> {{ challenge['done'] }}</p>
-        <a href="/delete/{{ challenge['id'] }}" class="card-link">delete</a>
+        <h5 class="card-title">{{ challenge[1] }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ challenge[3] }} | {{ challenge[4] }}</h6>
+        <p class="card-text">{{ challenge[2] }} <br> {{ challenge[5] }}</p>
+        <a href="/delete/{{ challenge[0] }}" class="card-link">delete</a>
       </div>
     </div>
 {% endfor %}
