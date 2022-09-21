@@ -15,7 +15,6 @@ def init_db(db):
 def get_db():
     if 'db' not in g:
         g.db = sqlite3.connect("flaskr.sqlite")
-        init_db(g.db)
         g.db.row_factory = sqlite3.Row
 
     return g.db

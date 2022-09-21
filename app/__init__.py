@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 import db.db as db
 
 app = Flask(__name__)
-
+db.init_db(db.get_db())
 
 @app.route("/")
 def hello_world():
