@@ -4,6 +4,15 @@ import db
 app = Flask(__name__)
 
 
+class Challenge:
+    def __init__(self, name, description, start_date, end_date, done):
+        self.name = name
+        self.description = description
+        self.start_date = start_date
+        self.end_date = end_date
+        self.done = done
+
+
 @app.route("/")
 def hello_world():
     con = db.get_db()
@@ -26,16 +35,19 @@ def add_challenge():
 def saveDetails():
     msg = "msg"
     try:
-        name = request.form["name"]
-        description = request.form["description"]
-        start_date = request.form["start_date"]
-        end_date = request.form["end_date"]
-        done = request.form["done"]
+        challenge = Challenge(
+            name=request.form["name"],
+            description=request.form["description"],
+            start_date=request.form["start_date"],
+            end_date=request.form["end_date"],
+            done=request.form["done"]
+        )
 
         with db.get_db() as con:
             cur = con.cursor()
-            cur.execute("INSERT into challenges (name, description, start_date, end_date, done) values (%s,%s,%s,%s,%s)",
-                        (name, description, start_date, end_date, done))
+            cur.execute(
+                "INSERT into challenges (name, description, start_date, end_date, done) values (%s,%s,%s,%s,%s)",
+                (challenge.name, challenge.description, challenge.start_date, challenge.end_date, challenge.done))
             con.commit()
             msg = "challenge successfully Added"
             print("success")
