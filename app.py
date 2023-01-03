@@ -54,7 +54,7 @@ def saveDetails():
             con.close()
     except:
         con.rollback()
-        msg = "We can not add the employee to the list"
+        msg = "We can not add the challenge to the list"
         print("fail")
         con.close()
     finally:
